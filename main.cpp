@@ -188,13 +188,14 @@ int main() {
                 std::max_element(scores, scores + num_classes) - scores
             );
 
+            auto t5 = clock::now();
+
             fs::path save_dir = fs::path(output_root) / std::to_string(pred_class);
             fs::create_directories(save_dir);
 
             fs::path save_path = save_dir / img_path.filename();
             cv::imwrite(save_path.string(), img);
 
-            auto t5 = clock::now();
             double t_post = std::chrono::duration<double, std::milli>(t5 - t4).count();
             postprocess_times.push_back(t_post);
 
