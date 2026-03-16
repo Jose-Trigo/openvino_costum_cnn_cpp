@@ -1,0 +1,8 @@
+# Ignore all .mp4 files
+*.mp4
+*.avi
+
+#ignore build directory
+build/
+deploy/
+inspection/
